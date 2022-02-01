@@ -1,14 +1,18 @@
 package entity
 
-import "github.com/google/uuid"
+import (
+	"github.com/jinzhu/gorm"
+)
 
 type Account struct {
-	ID   uuid.UUID
-	Name string
-	User *User
+	gorm.Model
+	Type    string
+	Name    string
+	Balance uint
+	UserID  uint
 }
 
-func (a Account) GetID() uuid.UUID {
+func (a Account) GetID() uint {
 	return a.ID
 }
 
@@ -16,6 +20,6 @@ func (a Account) GetName() string {
 	return a.Name
 }
 
-func (a Account) GetUser() uuid.UUID {
-	return a.User.ID
+func (a Account) GetUser() uint {
+	return a.UserID
 }

@@ -1,9 +1,11 @@
 package entity
 
-import "github.com/google/uuid"
+import (
+	"github.com/jinzhu/gorm"
+)
 
 type User struct {
-	ID       uuid.UUID
+	gorm.Model
 	Username string
 	Password string
 	Email    string
